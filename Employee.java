@@ -1,117 +1,54 @@
-package com.oops.basic;
+package com.oopsctr;
 
-class e_Details
+public class Employee 
 {
-	private int e_id,dept_No,sal,netSal,pf,hra,da;
-	private String e_name,email;
+	int eid;
+	String ename;
+	double sal;
+	static String cName;
 	
-	public void setData(int emp_id,String e_Name,int dept_no,int e_Sal,String e_mail)
+	static
 	{
-		e_id = emp_id;
-		e_name = e_Name;
-		dept_No = dept_no;
-		sal = e_Sal;	
-		email = e_mail;
+		System.out.println("Inside static block 1");
+		cName = "Infosys";
 	}
-	public int getEid()
+	static
 	{
-		return e_id;
+		System.out.println("Inside static block 2");
 	}
-	public void setEid(int eid)
+	public static void changecname(String name)
 	{
-		e_id = eid;
+		cName = name;
 	}
-	public String getEname()
-	{
-		return e_name;
-	}
-	public void setEname(String name)
-	{
-		e_name = name;
-	}
-	public int getDeptno()
-	{
-		return dept_No;
-	}
-	public void setDeptno(int dno)
-	{
-		dept_No = dno;
-	}
-	public int getNetsal()
-	{
-		return netSal;
-	}
-	public void setNetsal(int sal)
-	{
-		netSal = sal;
-	}
-	public int getSal()
-	{
-		return sal;
-	}
-	public void setSal(int salary)
-	{
-		sal = salary;
-	}
-	public int getPf()
-	{
-		return pf;
-	}
-	public void setPf(int pf1)
-	{
-		pf = pf1;
-	}
-	public int getDa()
-	{
-		return da;
-	}
-	public void setDa(int Da)
-	{
-		da = Da;
-	}
-	public int getHra()
-	{
-		return hra;
-	}
-	public void setHra(int Hra)
-	{
-		hra = Hra;
-	}
-	public String getEmail()
-	{
-		return email;
-	}
-	public void setEmail(String mail)
-	{
-		email = mail;
-	}
-	public void display()
-	{
-		System.out.println("Emp name is:"+ e_name+"\nemp id is:"+e_id+"\ndept No is:"+dept_No+"\nEmail id is:"+email+"\nSalary is:"+sal+"\nPf is:"+pf+"\nhra is:"+hra+"\nda is:"+da+"\nNet salary is:"+netSal);	
-	}
-	public void calculateSal()
-	{
-		pf = sal*10 /100;
-				
-		hra = sal*15/100;
-		
-		da = sal*20/100;
 	
-		netSal = sal - pf+hra+da;
-		
-//		System.out.println("Pf is:"+pf+"\nhra is:"+hra+"\nda is:"+da+"\nNet Salary is:"+netsal);
-	}
-}
-
-public class Employee
-{
-
-	public static void main(String[] args)
+	public Employee()
 	{
-		e_Details eobj = new e_Details();
-		eobj.setData(101,"Sayali",501,10000,"abc@gmail.com");
-		eobj.calculateSal();
-		eobj.display();
+		
+	}
+	public Employee(int eid,String ename,double sal)
+	{
+		this.eid = eid;
+		this.ename = ename;
+		this.sal = sal;
+	}
+	
+	public void show()
+	{
+		System.out.println("Eid is:"+eid+"\nEName is:"+ename+"\nSal is:"+sal+"\nCompany name:"+cName);
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Inside main function");
+		Employee e = new Employee();
+		e.show();
+		System.out.println("_______________________________");
+		Employee e1 = new Employee(101,"Vedika",40000);
+		e1.show();
+		System.out.println("________________________________");
+		Employee.changecname("Infosys ltd");
+		e1.show();
+		
 
 	}
 

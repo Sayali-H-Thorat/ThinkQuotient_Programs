@@ -1,51 +1,69 @@
-package com.oops.basic;
+package com.oopsctr;
 
-/*
- * Data members: data members are initialised with its default value.
- * data members are accessible in all the methods of a class
- * To access the data member in main method we need to create object.
- * Syntax:
- *   classname variablename = new classname();
- *   Every object of a class is having its own copy of data member
- *   */
-public class MyDate
+public class MyDate 
 {
 	private int dd,mm,yy;
-	
-	public void setData(int d,int m,int y)
+	public MyDate()
 	{
+		System.out.println("I am in default constructor..");
+		dd=22;
+		mm=10;
+		yy=2024;
+	}
+	public MyDate(int d,int m,int y)
+	{
+		System.out.println("Inside parameterised constructor");
 		dd=d;
 		mm=m;
 		yy=y;
 	}
-	public void display()
+	public MyDate(int d,int m)  //Constructor overloading
+	{
+		System.out.println("Inside overloaded constructor");
+		dd=d;
+		mm= m;
+	}
+	public void setDd(int d)
+	{
+		dd=d;
+	}
+	public int getDd()
+	{
+		return dd;
+	}
+	public void setMm(int m)
+	{
+		mm=m;
+	}
+	public int getMm()
+	{
+		return mm;
+	}
+	public void setYy(int y)
+	{
+		yy=y;
+	}
+	public int getYy()
+	{
+		return yy;
+	}
+	public void show()
 	{
 		System.out.println("Date is:"+dd+"/"+mm+"/"+yy);
 	}
 
 	public static void main(String[] args) 
 	{
-		System.out.println("___________________________");
-		System.out.println("Output without giving any value to it.");
 		MyDate obj = new MyDate();
-		obj.display();
-		System.out.println("___________________________");
-		System.out.println("Output giving value to it.");
-		obj.dd=18;
-		obj.mm=10;
-		obj.yy=2024;
-		obj.display();
-		System.out.println();
-		obj.dd=12;
-		obj.mm=12;
-		obj.yy=2024;
-		obj.display();
-		System.out.println("___________________________");
-		System.out.println("Output using seData method.");
-		MyDate obj3 = new MyDate();
-		obj3.setData(17, 10, 2024);
-		obj3.display();
-
+		obj.show();	
+		obj.setDd(25);
+		obj.setMm(12);
+		obj.setYy(2022);
+		obj.show();	
+		MyDate obj1=new MyDate(22,20,2022);
+		obj1.show();
+		MyDate obj2= new MyDate(17,8);
+		obj2.show();
 	}
 
 }
